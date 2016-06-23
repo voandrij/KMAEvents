@@ -1,0 +1,93 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.date-picker,
+.date-container {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  color: rgb(75, 77, 78);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.date-container {
+  padding: 0px 40px;
+}
+
+.date-picker h2, .date-picker h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+}
+
+.date-container{
+  text-align: center;
+}
+.date-picker span.fa {
+  position: absolute;
+  cursor: pointer;
+}
+.date-picker span.fa[data-method="subtract"] {
+  left: 0px;
+}
+.date-picker span.fa[data-method="add"] {
+  right: 0px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1010px) {
+  .date-picker h2{
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  .date-picker h4 {
+    font-size: 1.1em;
+  }
+  .date-picker span.fa {
+    font-size: 3em;
+  }
+}
+
+.btn-xlarge {
+  padding: 18px 28px;
+  font-size: 22px; //change this to your desired size
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+#fileupload {
+  position: absolute;
+  top: 220px;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 10px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.fileinput-button{
+    margin-left: 50px;
+  margin-top: 40px;
+}
+
+.submit-btn{
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 10px;
+}
+
+.well{
+  margin-top: 20px;
+}

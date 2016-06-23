@@ -1,0 +1,22 @@
+<li>
+    <div class="event-container">
+        <div class="event-card">
+            <div class="event-header">
+                <h2 class="title"><a href="" title=""><%= event.title %></a></h2>
+            </div>
+            <div class="event-image">
+                <a href="" title="">
+                    <img src="<%= event.icon %>" alt="" sizes="(max-width: 464px) 100vw, 464px">
+                </a>
+            </div>
+            <div class="event-description">
+
+                <p>
+                    <span class="glyphicon glyphicon-calendar"><%= event.day%>.<%= event.month%>.<%= event.year%></span>
+                    <span class="glyphicon glyphicon-time"><%=event.hour%>:00</span>
+                </p>
+                <p><span class="glyphicon glyphicon-map-marker"><%=event.location%></span></p>
+            </div>
+        </div>
+    </div>
+</li>

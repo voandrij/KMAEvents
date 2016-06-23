@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>KMAEvents</title>
+
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+
+    <!-- LESS основний файл -->
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
+    <link rel="stylesheet/less" type="text/css" href="assets/less/addEvent.less" />
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+
+</head>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">KMAEvents</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                <ul id="login-dp" class="dropdown-menu">
+                    <li>
+                        <div class="row">
+                            <div class="col-md-12">
+                                Login via
+                                <div class="social-buttons">
+                                    <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                    <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                </div>
+                                or
+                                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                        <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> keep me logged-in
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="bottom text-center">
+                                New here ? <a href="#"><b>Join Us</b></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+    <p class="well">Fill all the forms to register event</p>
+    <h3>Event Registration</h3>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Full name</label>
+                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    <input type="text" class="form-control" name="Username" id="Username" placeholder="Full name" required value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                    <input type="text" class="form-control" name="Email" id="Email" placeholder="example@gmail.com" required value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Contact</label>
+                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+                    <input type="text" class="form-control" name="" id="number" placeholder="+ 38 099 122 133 23">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                    <input type="text" class="form-control" name="time" id="time" placeholder="18:00" required>
+                </div>
+                </div>
+            <div class="form-group">
+                    <label>Location</label>
+                    <div class="input-group"> <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="First building, NaUKMA" required>
+                    </div>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<input type="checkbox" id="free" value="option1">-->
+                <!--<label>Is it free?</label>-->
+
+
+            <!--</div>-->
+        </div>
+        <div class="col-lg-6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-1">
+                        <label >Select Date:</label>
+                        <div class="date-picker"  data-date="2014-02-03">
+                            <div class="date-container">
+                                <h3 class="date">
+                                    <span data-toggle="datepicker" data-method="subtract" data-type="d" class="fa fa-angle-left"></span>
+                                    <span class="text">17th</span>
+                                    <span data-toggle="datepicker" data-method="add" data-type="d" class="fa fa-angle-right"></span>
+                                </h3>
+                                <h2 class="month">
+                                    <span data-toggle="datepicker" data-method="subtract" data-type="M" class="fa fa-angle-left"></span>
+                                    <span class="text">December</span>
+                                    <span data-toggle="datepicker" data-method="add" data-type="M" class="fa fa-angle-right"></span>
+                                </h2>
+                                <h3 class="year">
+                                    <span data-toggle="datepicker" data-method="subtract" data-type="y" class="fa fa-angle-left"></span>
+                                    <span class="text">2014</span>
+                                    <span data-toggle="datepicker" data-method="add" data-type="y" class="fa fa-angle-right"></span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div>
+                        <span class="btn btn-success fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Select image for uploading</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="fileupload" type="file" name="files[]" multiple="">
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="dateinput" name="date"></input>
+        </div>
+    </div>
+    <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary submit-btn">
+</div>
+
+
+
+
+
+
+<!-- jQuery JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+
+<!--Bootsrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!--Own JavaScript -->
+<script type="text/javascript"  src="assets/js/datepicker.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js"></script>
+
+<script>
+    new AnimOnScroll( document.getElementById( 'grid' ), {
+        minDuration : 0.4,
+        maxDuration : 0.7,
+        viewportFactor : 0.2
+    } );
+</script>
+</body>
+</html>

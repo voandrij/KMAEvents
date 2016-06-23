@@ -1,0 +1,91 @@
+.event-container{
+  padding: 0 1.5% 4.5% 0.5%;
+}
+
+.event-card{
+    font-size: 18px;
+    width: 100%;
+    position: relative;
+    background-color: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+
+  .event-image {
+    border-bottom: 1px solid #dfdfdf;
+    a {
+      overflow: hidden;
+      display: block
+    }
+    img {
+      display: block;
+    }
+    a:hover img {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+      -webkit-opacity: 0.8;
+      -moz-opacity: 0.8;
+      opacity: 0.8;
+    }
+    iframe{
+      display: block;
+    }
+  }
+
+  .event-header {
+    position: relative;
+    padding: 1% 3%;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+
+    .title {
+      font-family: 'Roboto Slab', sans-serif;
+      font-size: 0.85em;
+      line-height: 120%;
+      font-weight: 600;
+      margin: 7px;
+      color: #2B3542;
+      background-color: white;
+      a { color: #2B3542; }
+      a:hover { color: #496ebc; text-decoration: none }
+    }
+  }
+
+  .event-description{
+    padding: 3%;
+    background-color: white;
+    p {
+      background-color: white;
+      font-size: 0.75em;
+      line-height: 160%;
+      color: #666;
+    }
+    .glyphicon-time{
+      float: right;
+      margin-right: 30px;
+      vertical-align:middle
+
+    }
+
+    .glyphicon-calendar{
+      margin-left: 30px;
+      vertical-align:middle
+    }
+
+    .glyphicon-map-marker{
+      margin: 0 auto;
+      display: table;
+      vertical-align:middle
+    }
+    .location{
+      word-spacing: 5px;
+    }
+  }
+}
+
+
+
