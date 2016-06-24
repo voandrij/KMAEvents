@@ -8,18 +8,21 @@ var $e_list = $(".events-list");
 
 function showPizzaList(list) {
     $e_list.html("");
-    function showOnePizza(event) {
+    function showOneEvent(event) {
         var html_code = Templates.EventMenu_OneItem({event: event});
         var $node = $(html_code);
         $e_list.append($node);
     }
 
-    list.forEach(showOnePizza);
+    list.forEach(showOneEvent);
 }
 
+
 function initialiseMenu() {
-    showPizzaList(Event_List)
+
+    showPizzaList(Event_List);
 }
+
 
 exports.initialiseMenu = initialiseMenu;
 },{"./Events_List":2,"./Templates":3}],2:[function(require,module,exports){
@@ -68,83 +71,111 @@ var event_info = [
         contact:""
     },
     {
-        id:1,
-        icon:'assets/images/2306korablik.jpg',
-        title: "Останній Кораблик Сезону",
-        day:"23",
+        id:4,
+        icon:'assets/images/KMAFest.jpg',
+        title: "Щорічний Фестиваль KMAFest",
+        day:"25",
         month:"06",
         year:"2016",
-        hour:"19",
-        location:"р. Дніпро",
+        hour:"15",
+        location:"Перший плац, НаУКМА",
         is_charity:false,
         is_free:true,
         ticketlink:"",
         contact:""
     },
     {
-        id:2,
-        icon:'assets/images/Folk.jpg',
-        title: "Благодійний Концерт Folk Jam",
-        day:"19",
+        id:5,
+        icon:'assets/images/MusicDay.jpg',
+        title: "День Вуличної Музики",
+        day:"21",
         month:"05",
         year:"2016",
-        hour:"18",
-        location:"4 корпус, НаУКМА",
+        hour:"16",
+        location:"НаУКМА",
         is_charity:true,
         is_free:true,
         ticketlink:"",
         contact:""
     },
     {
-        id:3,
-        icon:'assets/images/Kupala.jpg',
-        title: "Могилянське Купала",
-        day:"18",
+        id:6,
+        icon:'assets/images/voloshkovaLittusivka.jpg',
+        title: "Волошкова Літтусівка",
+        day:"13",
         month:"06",
         year:"2016",
-        hour:"11",
-        location:"Селище Бобриця",
+        hour:"17",
+        location:"Четвертий корпус, НаУКМА",
         is_charity:false,
         is_free:false,
         ticketlink:"",
         contact:""
     },{
-        id:1,
-        icon:'assets/images/2306korablik.jpg',
-        title: "Останній Кораблик Сезону",
-        day:"23",
+        id:7,
+        icon:'assets/images/harry.jpg',
+        title: "Кіноніч Harry Potter",
+        day:"25",
         month:"06",
         year:"2016",
-        hour:"19",
-        location:"р. Дніпро",
+        hour:"23",
+        location:"KMArt Yard",
         is_charity:false,
         is_free:true,
         ticketlink:"",
         contact:""
     },
     {
-        id:2,
-        icon:'assets/images/Folk.jpg',
-        title: "Благодійний Концерт Folk Jam",
-        day:"19",
+        id:8,
+        icon:'assets/images/mohyla_juzz.jpg',
+        title: "Фестиваль Джазу",
+        day:"26",
         month:"05",
         year:"2016",
         hour:"18",
-        location:"4 корпус, НаУКМА",
+        location:"KMArt Yard",
         is_charity:true,
         is_free:true,
         ticketlink:"",
         contact:""
     },
     {
-        id:3,
-        icon:'assets/images/Kupala.jpg',
-        title: "Могилянське Купала",
-        day:"18",
+        id: 9,
+        icon: 'assets/images/phi_day.jpg',
+        title: "День Факультету Інформатики",
+        day: "27",
+        month: "05",
+        year: "2016",
+        hour: "16",
+        location: "Культурно-мистецький Центр, НаУКМА",
+        is_charity: false,
+        is_free: false,
+        ticketlink: "",
+        contact: ""
+    },
+    {
+        id:10,
+        icon:'assets/images/po_svitu.jpg',
+        title: "Відкрита Лекція Про Міжнародні Стипендійні Програми",
+        day:"23",
         month:"06",
         year:"2016",
-        hour:"11",
-        location:"Селище Бобриця",
+        hour:"15",
+        location:"KMArt Yard",
+        is_charity:false,
+        is_free:false,
+        ticketlink:"",
+        contact:""
+    },
+    {
+        id:11,
+        icon:'assets/images/year-ship.jpg',
+        title: "Річний Кораблик",
+        day:"24",
+        month:"06",
+        year:"2016",
+        hour:"19",
+        location:"Поштова Площа",
         is_charity:false,
         is_free:false,
         ticketlink:"",
@@ -152,14 +183,34 @@ var event_info = [
     }
 ];
 
-module.exports = event_info;
+
+function sortResults(event_info) {
+    event_info = event_info.sort(function(a, b) {
+        // if(parseInt(a.year,10) > parseInt(b.year,10))
+        //     return true;
+        // if(parseInt(a.month,10) > parseInt(b.month,10))
+        //     return true;
+
+        if((a.day) >= (b.day)) {
+            console.log(a.title+a.day+">"+b.day+b.title);
+            return false;
+
+        } else {
+            console.log(a.title+a.day+"<"+b.day+b.title);
+            return true;
+        }
+    });
+    return event_info;
+}
+
+module.exports = sortResults(event_info);
 },{}],3:[function(require,module,exports){
 
 
 var ejs = require('ejs');
 
 
-exports.EventMenu_OneItem = ejs.compile("<li>\n    <div class=\"event-container\">\n        <div class=\"event-card\">\n            <div class=\"event-header\">\n                <h2 class=\"title\"><a href=\"\" title=\"\"><%= event.title %></a></h2>\n            </div>\n            <div class=\"event-image\">\n                <a href=\"\" title=\"\">\n                    <img src=\"<%= event.icon %>\" alt=\"\" sizes=\"(max-width: 464px) 100vw, 464px\">\n                </a>\n            </div>\n            <div class=\"event-description\">\n\n                <p>\n                    <span class=\"glyphicon glyphicon-calendar\"><%= event.day%>.<%= event.month%>.<%= event.year%></span>\n                    <span class=\"glyphicon glyphicon-time\"><%=event.hour%>:00</span>\n                </p>\n                <p><span class=\"glyphicon glyphicon-map-marker\"><%=event.location%></span></p>\n            </div>\n        </div>\n    </div>\n</li>\n");
+exports.EventMenu_OneItem = ejs.compile("<li>\n    <div class=\"event-container\">\n        <div class=\"event-card\">\n            <div class=\"event-header\">\n                <h2 class=\"title\"><a href=\"\" title=\"\"><%= event.title %></a></h2>\n            </div>\n            <div class=\"event-image\">\n                <a href=\"\" title=\"\">\n                    <img src=\"<%= event.icon %>\" alt=\"\" sizes=\"(max-width: 464px) 100vw, 464px\">\n                </a>\n            </div>\n            <div class=\"event-description\">\n\n                <p>\n                    <span class=\"date\"><span class=\"glyphicon glyphicon-calendar\"></span><%= event.day%>.<%= event.month%>.<%= event.year%></span>\n                    <span class=\"time\"><span class=\"glyphicon glyphicon-time\"></span><%=event.hour%>:00</span>\n                </p>\n                <p>\n                    <span class=\"location\">\n                        <span class=\"glyphicon glyphicon-map-marker\"></span>\n                        <%=event.location%>\n                    </span>\n                </p>\n                <!--<p>-->\n                    <!--<span>-->\n                        <!--<script type=\"text/javascript\">-->\n                        <!--VK.init({apiId: 4837422, onlyWidgets: true});-->\n                        <!--</script>-->\n\n                        <!--<!— Put this div tag to the place, where the Like block will be —>-->\n                        <!--<div id=\"vk_like\"></div>-->\n                        <!--<script type=\"text/javascript\">-->\n                        <!--VK.Widgets.Like(\"vk_like\", {type: \"button\"});-->\n                        <!--</script>-->\n                    <!--</span>-->\n                    <!--<span>-->\n                        <!--<!— Load Facebook SDK for JavaScript —>-->\n                        <!--<div id=\"fb-root\"></div>-->\n                        <!--<script>(function(d, s, id) {-->\n                                <!--var js, fjs = d.getElementsByTagName(s)[0];-->\n                                <!--if (d.getElementById(id)) return;-->\n                                <!--js = d.createElement(s); js.id = id;-->\n                                <!--js.src = \"https://connect.facebook.net/en_US/sdk.js#xfbml=1\";-->\n                                <!--fjs.parentNode.insertBefore(js, fjs);-->\n                            <!--}(document, 'script', 'facebook-jssdk'));</script>-->\n\n                        <!--<!— Your share button code —>-->\n                        <!--<div class=\"fb-share-button\"-->\n                             <!--data-href=\"http://www.your-domain.com/your-page.html\"-->\n                             <!--data-layout=\"button_count\">-->\n                        <!--</div>-->\n                    <!--</span>-->\n                <!--</p>-->\n            </div>\n        </div>\n    </div>\n</li>\n");
 
 },{"ejs":5}],4:[function(require,module,exports){
 
