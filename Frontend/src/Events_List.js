@@ -156,23 +156,4 @@ var event_info = [
 ];
 
 
-function sortResults(event_info) {
-    event_info = event_info.sort(function(a, b) {
-        // if(parseInt(a.year,10) > parseInt(b.year,10))
-        //     return true;
-        // if(parseInt(a.month,10) > parseInt(b.month,10))
-        //     return true;
-
-        if((a.day) >= (b.day)) {
-            console.log(a.title+a.day+">"+b.day+b.title);
-            return false;
-
-        } else {
-            console.log(a.title+a.day+"<"+b.day+b.title);
-            return true;
-        }
-    });
-    return event_info;
-}
-
-module.exports = sortResults(event_info);
+module.exports = (event_info);

@@ -6,7 +6,7 @@ var Event_List = require('./Events_List');
 
 var $e_list = $(".events-list");
 
-function showPizzaList(list) {
+function showEventList(list) {
     $e_list.html("");
     function showOneEvent(event) {
         var html_code = Templates.EventMenu_OneItem({event: event});
@@ -19,9 +19,15 @@ function showPizzaList(list) {
 
 
 function initialiseMenu() {
+    Event_List.sort(function(a, b) {
+        if(parseFloat(b.month) - parseFloat(a.month))
+            return parseFloat(b.month) - parseFloat(a.month);
+        return parseFloat(b.day) - parseFloat(a.day);
 
-    showPizzaList(Event_List);
+    });
+    showEventList(Event_List);
 }
+
 
 
 exports.initialiseMenu = initialiseMenu;
@@ -184,33 +190,14 @@ var event_info = [
 ];
 
 
-function sortResults(event_info) {
-    event_info = event_info.sort(function(a, b) {
-        // if(parseInt(a.year,10) > parseInt(b.year,10))
-        //     return true;
-        // if(parseInt(a.month,10) > parseInt(b.month,10))
-        //     return true;
-
-        if((a.day) >= (b.day)) {
-            console.log(a.title+a.day+">"+b.day+b.title);
-            return false;
-
-        } else {
-            console.log(a.title+a.day+"<"+b.day+b.title);
-            return true;
-        }
-    });
-    return event_info;
-}
-
-module.exports = sortResults(event_info);
+module.exports = (event_info);
 },{}],3:[function(require,module,exports){
 
 
 var ejs = require('ejs');
 
 
-exports.EventMenu_OneItem = ejs.compile("<li>\n    <div class=\"event-container\">\n        <div class=\"event-card\">\n            <div class=\"event-header\">\n                <h2 class=\"title\"><a href=\"\" title=\"\"><%= event.title %></a></h2>\n            </div>\n            <div class=\"event-image\">\n                <a href=\"\" title=\"\">\n                    <img src=\"<%= event.icon %>\" alt=\"\" sizes=\"(max-width: 464px) 100vw, 464px\">\n                </a>\n            </div>\n            <div class=\"event-description\">\n\n                <p>\n                    <span class=\"date\"><span class=\"glyphicon glyphicon-calendar\"></span><%= event.day%>.<%= event.month%>.<%= event.year%></span>\n                    <span class=\"time\"><span class=\"glyphicon glyphicon-time\"></span><%=event.hour%>:00</span>\n                </p>\n                <p>\n                    <span class=\"location\">\n                        <span class=\"glyphicon glyphicon-map-marker\"></span>\n                        <%=event.location%>\n                    </span>\n                </p>\n                <!--<p>-->\n                    <!--<span>-->\n                        <!--<script type=\"text/javascript\">-->\n                        <!--VK.init({apiId: 4837422, onlyWidgets: true});-->\n                        <!--</script>-->\n\n                        <!--<!— Put this div tag to the place, where the Like block will be —>-->\n                        <!--<div id=\"vk_like\"></div>-->\n                        <!--<script type=\"text/javascript\">-->\n                        <!--VK.Widgets.Like(\"vk_like\", {type: \"button\"});-->\n                        <!--</script>-->\n                    <!--</span>-->\n                    <!--<span>-->\n                        <!--<!— Load Facebook SDK for JavaScript —>-->\n                        <!--<div id=\"fb-root\"></div>-->\n                        <!--<script>(function(d, s, id) {-->\n                                <!--var js, fjs = d.getElementsByTagName(s)[0];-->\n                                <!--if (d.getElementById(id)) return;-->\n                                <!--js = d.createElement(s); js.id = id;-->\n                                <!--js.src = \"https://connect.facebook.net/en_US/sdk.js#xfbml=1\";-->\n                                <!--fjs.parentNode.insertBefore(js, fjs);-->\n                            <!--}(document, 'script', 'facebook-jssdk'));</script>-->\n\n                        <!--<!— Your share button code —>-->\n                        <!--<div class=\"fb-share-button\"-->\n                             <!--data-href=\"http://www.your-domain.com/your-page.html\"-->\n                             <!--data-layout=\"button_count\">-->\n                        <!--</div>-->\n                    <!--</span>-->\n                <!--</p>-->\n            </div>\n        </div>\n    </div>\n</li>\n");
+exports.EventMenu_OneItem = ejs.compile("<li>\n    <div class=\"event-container\">\n        <div class=\"event-card\">\n            <div class=\"event-header\">\n                <h2 class=\"title\"><a href=\"\" title=\"\"><%= event.title %></a></h2>\n            </div>\n            <div class=\"event-image\">\n                <a href=\"\" title=\"\">\n                    <img src=\"<%= event.icon %>\" alt=\"\" sizes=\"(max-width: 464px) 100vw, 464px\">\n                </a>\n            </div>\n            <div class=\"event-description\">\n\n                <p>\n                    <span class=\"date\"><span class=\"glyphicon glyphicon-calendar\"></span><%= event.day%>.<%= event.month%>.<%= event.year%></span>\n                    <span class=\"time\"><span class=\"glyphicon glyphicon-time\"></span><%=event.hour%>:00</span>\n                </p>\n                <p>\n                    <span class=\"location\">\n                        <span class=\"glyphicon glyphicon-map-marker\"></span>\n                        <%=event.location%>\n                    </span>\n                </p>\n                <!--<p>-->\n                    <!--<span>-->\n                        <!--<script type=\"text/javascript\">-->\n                        <!--VK.init({apiId: 4837422, onlyWidgets: true});-->\n                        <!--</script>-->\n\n                        <!--&lt;!&ndash;<!— Put this div tag to the place, where the Like block will be —>&ndash;&gt;-->\n                        <!--<div id=\"vk_like\"></div>-->\n                        <!--<script type=\"text/javascript\">-->\n                        <!--VK.Widgets.Like(\"vk_like\", {type: \"button\"});-->\n                        <!--</script>-->\n                    <!--</span>-->\n\n                    <!--<span>-->\n                        <!--<!— Load Facebook SDK for JavaScript —>-->\n                        <!--<div id=\"fb-root\"></div>-->\n                        <!--<script>(function(d, s, id) {-->\n                                <!--var js, fjs = d.getElementsByTagName(s)[0];-->\n                                <!--if (d.getElementById(id)) return;-->\n                                <!--js = d.createElement(s); js.id = id;-->\n                                <!--js.src = \"https://connect.facebook.net/en_US/sdk.js#xfbml=1\";-->\n                                <!--fjs.parentNode.insertBefore(js, fjs);-->\n                            <!--}(document, 'script', 'facebook-jssdk'));</script>-->\n\n                        <!--&lt;!&ndash;<!— Your share button code —>&ndash;&gt;-->\n                        <!--<div class=\"fb-share-button\"-->\n                             <!--data-href=\"./index.html\"-->\n                             <!--data-layout=\"button_count\">-->\n                        <!--</div>-->\n                    <!--</span>-->\n                <!--</p>-->\n            </div>\n        </div>\n    </div>\n</li>\n");
 
 },{"ejs":5}],4:[function(require,module,exports){
 
